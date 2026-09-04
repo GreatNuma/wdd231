@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WDD 231 - Web Frontend Development | Great Tamarabrakemi Numa</title>
+    <meta name="description" content="WDD 231 Course Home Page for Great Tamarabrakemi Numa">
+    <meta name="author" content="Great Tamarabrakemi Numa">
+    
+    <!-- Google Fonts API -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles/small.css">
+    <link rel="stylesheet" href="styles/larger.css">
+    
+    <!-- JavaScript -->
+    <script src="scripts/navigation.js" defer></script>
+    <script src="scripts/date.js" defer></script>
+    <script src="scripts/course.js" defer></script>
+</head>
+<body>
+    <header>
+        <img src="images/logo.svg" alt="Site Logo" width="50" height="50">
+        <span>Great Tamarabrakemi Numa</span>
+        <button id="menu" aria-label="Toggle Menu">☰</button>
+    </header>
+
+    <nav>
+        <ul id="nav-menu">
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="chamber/index.html">Chamber</a></li>
+            <li><a href="final/index.html">Final</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>Home</h1>
+        <div class="content-grid">
+            <section class="card">
+                <h2>Course Work</h2>
+                <p>Welcome to my WDD 231 portfolio! Here you will find links to my course activities, demonstrating web design principles and JavaScript functionality.</p>
+            </section>
+
+            <section class="card">
+                <h2>About Me</h2>
+                <p>Hello! I am a software Development student passionate about object-oriented programming, machine learning, and building responsive web applications.</p>
+            </section>
+        </div>
+
+        <section class="card certificate-section">
+            <h2>Web and Computer Programming Certificate</h2>
+            <div class="filter-buttons">
+                <button id="all">All Courses</button>
+                <button id="wdd">WDD Courses</button>
+                <button id="cse">CSE Courses</button>
+            </div>
+            <div id="course-container"></div>
+            <p><strong>Total Credits Required: </strong><span id="total-credits"></span></p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://github.com/greatnuma" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><img src="images/github.svg" alt="GitHub Logo" width="30"></a>
+            <a href="https://linkedin.com/in/greatnuma" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><img src="images/linkedin.svg" alt="LinkedIn Logo" width="30"></a>
+        </div>
+        <p>&copy; <span id="currentyear"></span> | Great Tamarabrakemi Numa | Delta State, Nigeria</p>
+        <p id="lastModified"></p>
+    </footer>
+</body>
+</html>

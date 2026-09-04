@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <!-- Dark Atmospheric Background Gradient -->
+    <radialGradient id="bg-grad" cx="50%" cy="50%" r="70%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#181c20" />
+      <stop offset="100%" stop-color="#080a0c" />
+    </radialGradient>
+
+    <!-- Premium Gold Gradient -->
+    <linearGradient id="gold-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#9A7B4F" />
+      <stop offset="50%" stop-color="#DFBA78" />
+      <stop offset="100%" stop-color="#FDF0C0" />
+    </linearGradient>
+
+    <!-- Deep Emerald Gradient -->
+    <linearGradient id="emerald-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#022C22" />
+      <stop offset="50%" stop-color="#059669" />
+      <stop offset="100%" stop-color="#064E3B" />
+    </linearGradient>
+
+    <!-- Subtle Glow Effect -->
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bg-grad)" />
+
+  <!-- Center Logo Mark -->
+  <g transform="translate(400, 240)">
+    
+    <!-- Outer Hexagonal Crest -->
+    <polygon points="0,-110 75,-40 75,50 0,120 -75,50 -75,-40" fill="none" stroke="url(#gold-grad)" stroke-width="3" stroke-linejoin="round" opacity="0.8"/>
+    
+    <!-- Inner Emerald Accent -->
+    <polygon points="0,-85 55,-25 55,35 0,95 -55,35 -55,-25" fill="url(#emerald-grad)" opacity="0.9" filter="url(#glow)"/>
+    
+    <!-- Stylized Geometric "T" -->
+    <path d="M -45,-45 L 45,-45 L 45,-25 L 10,-25 L 10,75 L -10,75 L -10,-25 L -45,-25 Z" fill="url(#gold-grad)"/>
+    
+    <!-- Decorative Inner Lines -->
+    <path d="M 0,-45 L 0,-85 M 0,75 L 0,95" stroke="url(#gold-grad)" stroke-width="2"/>
+    <path d="M -55,-25 L -10,15 M 55,-25 L 10,15" stroke="url(#gold-grad)" stroke-width="2"/>
+    
+  </g>
+
+  <!-- Brand Typography -->
+  <text x="400" y="470" 
+        font-family="'Cinzel', 'Trajan Pro', 'Didot', 'Georgia', serif" 
+        font-size="46" 
+        font-weight="400" 
+        letter-spacing="18" 
+        fill="url(#gold-grad)" 
+        text-anchor="middle">
+    TAMAGREN
+  </text>
+  
+  <!-- Underline Accent -->
+  <line x1="330" y1="510" x2="470" y2="510" stroke="url(#emerald-grad)" stroke-width="3" stroke-linecap="round" opacity="0.8" />
+  <line x1="395" y1="510" x2="405" y2="510" stroke="url(#gold-grad)" stroke-width="3" stroke-linecap="round" />
+</svg>

@@ -1,0 +1,40 @@
+@media (min-width: 768px) {
+    #menu {
+        display: none; /* Hide hamburger on large screens */
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    nav a {
+        padding: 1rem 3rem;
+    }
+
+    .content-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+
+    .card {
+        margin-bottom: 0;
+    }
+
+    .certificate-section {
+        margin-top: 1.5rem;
+    }
+
+    #course-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .course-card {
+        flex: 1 1 200px;
+        max-width: 250px;
+    }
+}
