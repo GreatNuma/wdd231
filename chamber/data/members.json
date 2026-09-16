@@ -1,0 +1,74 @@
+{
+  "members": [
+    {
+      "name": "Adaeze Fashion House",
+      "address": "14 Adeniran Ogunsanya St, Surulere, Lagos",
+      "phone": "+234 801 234 5678",
+      "url": "https://www.adaezefashion.example.com",
+      "image": "adaeze-fashion.svg",
+      "membershipLevel": 3,
+      "category": "Retail & Fashion",
+      "founded": 2016
+    },
+    {
+      "name": "Lekki Logistics Partners",
+      "address": "22 Admiralty Way, Lekki Phase 1, Lagos",
+      "phone": "+234 802 345 6789",
+      "url": "https://www.lekkilogistics.example.com",
+      "image": "lekki-logistics.svg",
+      "membershipLevel": 3,
+      "category": "Logistics & Transport",
+      "founded": 2011
+    },
+    {
+      "name": "Yaba Tech Hub",
+      "address": "9 Herbert Macaulay Way, Yaba, Lagos",
+      "phone": "+234 803 456 7890",
+      "url": "https://www.yabatechhub.example.com",
+      "image": "yaba-tech-hub.svg",
+      "membershipLevel": 2,
+      "category": "Technology",
+      "founded": 2014
+    },
+    {
+      "name": "Balogun Traders Cooperative",
+      "address": "5 Balogun Market Rd, Lagos Island, Lagos",
+      "phone": "+234 804 567 8901",
+      "url": "https://www.baloguntraders.example.com",
+      "image": "balogun-traders.svg",
+      "membershipLevel": 1,
+      "category": "Wholesale & Trade",
+      "founded": 1998
+    },
+    {
+      "name": "Victoria Island Legal Associates",
+      "address": "31 Ozumba Mbadiwe Ave, Victoria Island, Lagos",
+      "phone": "+234 805 678 9012",
+      "url": "https://www.vilegal.example.com",
+      "image": "vi-legal.svg",
+      "membershipLevel": 2,
+      "category": "Professional Services",
+      "founded": 2005
+    },
+    {
+      "name": "Ikeja Bakehouse",
+      "address": "18 Allen Avenue, Ikeja, Lagos",
+      "phone": "+234 806 789 0123",
+      "url": "https://www.ikejabakehouse.example.com",
+      "image": "ikeja-bakehouse.svg",
+      "membershipLevel": 1,
+      "category": "Food & Beverage",
+      "founded": 2019
+    },
+    {
+      "name": "Apapa Freight Solutions",
+      "address": "3 Wharf Road, Apapa, Lagos",
+      "phone": "+234 807 890 1234",
+      "url": "https://www.apapafreight.example.com",
+      "image": "apapa-freight.svg",
+      "membershipLevel": 3,
+      "category": "Shipping & Freight",
+      "founded": 2003
+    }
+  ]
+}

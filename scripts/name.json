@@ -1,0 +1,28 @@
+{
+  "familyName": "Mikaelson",
+  "dateMoved": "2026-08-15",
+  "numberOfMembers": 4,
+  "visitedByBishopric": true,
+  "members": [
+    {
+      "name": " Klaus Mikaelson",
+      "gender": "male",
+      "birthdate": "1985-03-22"
+    },
+    {
+      "name": "Rebekah Mikaelson",
+      "gender": "female",
+      "birthdate": "1987-11-05"
+    },
+    {
+      "name": "Freya Mikaelson",
+      "gender": "female",
+      "birthdate": "2012-06-14"
+    },
+    {
+      "name": "Elijah Mikaelson",
+      "gender": "male",
+      "birthdate": "2015-09-30"
+    }
+  ]
+}

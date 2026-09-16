@@ -1,0 +1,235 @@
+/* ===== Design tokens ===== */
+:root {
+  --color-primary: #0b6e4f;
+  --color-accent: #d4a017;
+  --color-bg: #faf9f6;
+  --color-text: #222222;
+  --color-card-bg: #ffffff;
+  --color-sage: #e8f0ec;
+  --font-heading: "Poppins", Arial, sans-serif;
+  --font-body: "Open Sans", Arial, sans-serif;
+}
+
+/* ===== Base ===== */
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+h1, h2, h3, .brand-name {
+  font-family: var(--font-heading);
+}
+
+/* ===== Header ===== */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background-color: var(--color-primary);
+  color: #fff;
+  position: relative;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo {
+  width: 36px;
+  height: 36px;
+}
+
+.brand-name {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.brand-name span {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: #ffffff;
+  opacity: 0.85;
+}
+
+/* Hamburger menu button */
+.menu-toggle {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 0.4rem;
+}
+
+.menu-toggle .bar {
+  width: 24px;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 2px;
+}
+
+/* Nav collapsed by default on mobile */
+.primary-nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: var(--color-primary);
+  display: none;
+  z-index: 10;
+}
+
+.primary-nav.open {
+  display: block;
+}
+
+.primary-nav ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.primary-nav a {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: #fff;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.primary-nav a[aria-current="page"] {
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ===== Directory controls ===== */
+.directory-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1rem 0.5rem;
+}
+
+.directory-controls h1 {
+  font-size: 1.3rem;
+  color: var(--color-primary);
+}
+
+.view-toggle {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.view-btn {
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid var(--color-primary);
+  border-radius: 4px;
+  color: var(--color-primary);
+  background-color: transparent;
+}
+
+.view-btn.active {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+/* ===== Directory grid/list ===== */
+.directory {
+  padding: 0.5rem 1rem 2rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+.directory.list-layout {
+  grid-template-columns: 1fr;
+}
+
+.member-card {
+  background-color: var(--color-card-bg);
+  border-left: 6px solid #ccc;
+  border-radius: 4px;
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.member-card.tier-3 {
+  border-left-color: var(--color-accent);
+}
+
+.member-card.tier-2 {
+  border-left-color: #9aa0a6;
+}
+
+.member-card.tier-1 {
+  border-left-color: var(--color-sage);
+}
+
+.member-card img {
+  width: 100%;
+  max-width: 220px;
+  border-radius: 4px;
+  margin-bottom: 0.6rem;
+}
+
+.member-card h2 {
+  font-size: 1.05rem;
+  color: var(--color-primary);
+  margin-bottom: 0.3rem;
+}
+
+.member-card p {
+  font-size: 0.88rem;
+  margin-bottom: 0.2rem;
+}
+
+.member-card .tier-badge {
+  display: inline-block;
+  margin-top: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+  background-color: var(--color-sage);
+  color: var(--color-primary);
+}
+
+.member-card a.visit-site {
+  display: inline-block;
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+/* List layout variant: text-only rows, no images, per assignment requirement */
+.directory.list-layout .member-card {
+  display: block;
+}
+
+.directory.list-layout .member-card img {
+  display: none;
+}
+
+/* ===== Footer ===== */
+.site-footer {
+  background-color: var(--color-primary);
+  color: #fff;
+  padding: 1.25rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.site-footer a {
+  color: #ffffff;
+  text-decoration: underline;
+}

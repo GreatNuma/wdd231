@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Business Directory | Lagos Chamber of Commerce</title>
+  <meta name="description" content="Browse the member business directory of the Lagos Chamber of Commerce, connecting businesses and residents across Lagos, Nigeria.">
+  <meta name="author" content="Great Tamarabrakemi Numa">
+
+  <!-- Favicon (created in a previous activity, stored at the wdd231 root) -->
+  <link rel="icon" href="../favicon.ico">
+
+  <!-- Facebook Open Graph meta -->
+  <meta property="og:title" content="Lagos Chamber of Commerce — Business Directory">
+  <meta property="og:description" content="Explore member businesses across Lagos, from tech startups to trade cooperatives, and discover the chamber that connects them.">
+  <meta property="og:image" content="https://yourusername.github.io/wdd231/chamber/images/chamber-preview.jpg">
+  <meta property="og:url" content="https://yourusername.github.io/wdd231/chamber/directory.html">
+
+  <!-- CSS: normalize first, then mobile-first small.css, then larger.css for wider screens -->
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="styles/small.css">
+  <link rel="stylesheet" href="styles/larger.css">
+
+  <script src="scripts/directory.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-brand">
+      <img src="images/logo.svg" alt="Lagos Chamber of Commerce logo" class="logo">
+      <p class="brand-name">Lagos Chamber<span>of Commerce</span></p>
+    </div>
+
+    <button id="menu-toggle" class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+      <span class="sr-only">Menu</span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <nav id="primary-nav" class="primary-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="directory.html" aria-current="page">Directory</a></li>
+        <li><a href="join.html">Join</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="directory-controls">
+      <h1>Business Directory</h1>
+      <div class="view-toggle" role="group" aria-label="Choose display view">
+        <button id="grid-view" class="view-btn active" type="button" aria-pressed="true">
+          <span class="sr-only">Grid view</span>▦
+        </button>
+        <button id="list-view" class="view-btn" type="button" aria-pressed="false">
+          <span class="sr-only">List view</span>☰
+        </button>
+      </div>
+    </section>
+
+    <section id="directory" class="directory grid-layout">
+      <!-- Member cards are injected here by directory.js -->
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-info">
+      <p>Lagos Chamber of Commerce</p>
+      <p>22 Marina Street, Lagos Island, Lagos, Nigeria</p>
+      <p>+234 800 000 0000 | info@lagoschamber.example.com</p>
+    </div>
+    <div class="footer-dev">
+      <p>Great Tamarabrakemi Numa</p>
+      <p>WDD 231 &mdash; Web Frontend Development I</p>
+      <p>&copy; <span id="year"></span> Lagos Chamber of Commerce</p>
+      <p>Last Modified: <span id="last-modified"></span></p>
+    </div>
+  </footer>
+</body>
+</html>

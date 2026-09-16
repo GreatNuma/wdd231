@@ -1,0 +1,61 @@
+/* Enhancements for wider viewports */
+@media screen and (min-width: 640px) {
+  .site-header {
+    padding: 1rem 2rem;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .primary-nav {
+    position: static;
+    display: block;
+    background-color: transparent;
+  }
+
+  .primary-nav ul {
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+
+  .primary-nav a {
+    border-top: none;
+    padding: 0.5rem 0.9rem;
+    border-radius: 4px;
+  }
+
+  .primary-nav a:hover,
+  .primary-nav a[aria-current="page"] {
+    background-color: rgba(255, 255, 255, 0.12);
+  }
+
+  .directory-controls {
+    padding: 2rem 2rem 1rem;
+  }
+
+  .directory-controls h1 {
+    font-size: 1.75rem;
+  }
+
+  .directory {
+    padding: 1rem 2rem 3rem;
+  }
+
+  .directory.grid-layout {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+
+  .site-footer {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+    padding: 1.5rem 2rem;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .directory.grid-layout {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
