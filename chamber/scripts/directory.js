@@ -1,4 +1,4 @@
-const url = '../data/members.json';
+const url = 'data/members.json';
 const directory = document.querySelector('#directory');
 
 const tierLabels = {
