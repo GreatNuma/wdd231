@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TAMAGREN Chamber of Commerce | Home</title>
+  <meta name="description" content="The TAMAGREN Chamber of Commerce connects businesses and residents across Lagos, Nigeria through networking, resources, and community events.">
+  <meta name="author" content="Great Tamarabrakemi Numa">
+
+  <!-- Favicon -->
+  <link rel="icon" href="../favicon.ico">
+
+  <!-- Facebook Open Graph meta -->
+  <meta property="og:title" content="TAMAGREN Chamber of Commerce">
+  <meta property="og:description" content="Connecting businesses and residents across Lagos, Nigeria through networking, resources, and community events.">
+  <meta property="og:image" content="https://greatnuma.github.io/wdd231/chamber/images/chamber-preview.jpg">
+  <meta property="og:url" content="https://greatnuma.github.io/wdd231/chamber/index.html">
+
+  <!-- Google Fonts: Poppins (headings) + Open Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- CSS: normalize first, then mobile-first small.css, then larger.css for wider screens -->
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="styles/small.css">
+  <link rel="stylesheet" href="styles/larger.css">
+
+  <script src="scripts/home.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-brand">
+      <img src="images/logo.svg" alt="TAMAGREN Chamber of Commerce logo" class="logo">
+      <p class="brand-name">TAMAGREN Chamber<span>of Commerce</span></p>
+    </div>
+
+    <button id="menu-toggle" class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+      <span class="sr-only">Menu</span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <nav id="primary-nav" class="primary-nav">
+      <ul>
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="directory.html">Directory</a></li>
+        <li><a href="join.html">Join</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero section with scalable img (not a CSS background) and call-to-action -->
+    <section class="hero">
+      <img src="images/hero-tamagren.svg" alt="Stylized illustration of the TAMAGREN business district skyline at dusk" class="hero-img">
+      <div class="hero-overlay">
+        <h1>Welcome to the TAMAGREN Chamber of Commerce</h1>
+        <p>Connecting businesses and residents across Lagos through networking, resources, and community growth.</p>
+        <a href="join.html" class="cta-btn">Join the Chamber</a>
+      </div>
+    </section>
+
+    <!-- Current events -->
+    <section class="events">
+      <h2>Upcoming Events</h2>
+      <ul class="events-list">
+        <li class="event-card">
+          <p class="event-date">Oct 3, 2026</p>
+          <h3>TAMAGREN Business Networking Mixer</h3>
+          <p>Meet fellow members over refreshments at the Chamber's Victoria Island office, 5–7 PM.</p>
+        </li>
+        <li class="event-card">
+          <p class="event-date">Oct 18, 2026</p>
+          <h3>TAMAGREN SME Funding &amp; Grants Workshop</h3>
+          <p>A half-day workshop covering funding options for small businesses, hosted at Yaba Tech Hub.</p>
+        </li>
+        <li class="event-card">
+          <p class="event-date">Nov 7, 2026</p>
+          <h3>TAMAGREN Annual Gala</h3>
+          <p>Celebrate the year's achievements with fellow members, awards, and dinner at Eko Hotel.</p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Weather: current conditions + 3-day forecast, populated via home.js -->
+    <section class="weather">
+      <h2>TAMAGREN Weather</h2>
+      <div id="current-weather" class="current-weather">
+        <p>Loading current conditions&hellip;</p>
+      </div>
+      <div id="forecast" class="forecast-grid">
+        <!-- 3-day forecast cards injected by home.js -->
+      </div>
+    </section>
+
+    <!-- Member spotlights: 2-3 random gold/silver members, populated via home.js -->
+    <section class="spotlights">
+      <h2>Member Spotlights</h2>
+      <div id="spotlight-cards" class="spotlight-grid">
+        <!-- Spotlight cards injected by home.js -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-info">
+      <p>TAMAGREN Chamber of Commerce</p>
+      <p>22 Marina Street, TAMAGREN, Nigeria</p>
+      <p>+234 800 000 0000 | info@tamagrenchamber.example.com</p>
+    </div>
+    <div class="footer-dev">
+      <p>Great Tamarabrakemi Numa</p>
+      <p>WDD 231 &mdash; Web Frontend Development I</p>
+      <p>&copy; <span id="year"></span> TAMAGREN Chamber of Commerce</p>
+      <p>Last Modified: <span id="last-modified"></span></p>
+    </div>
+  </footer>
+</body>
+</html>

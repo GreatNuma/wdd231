@@ -1,0 +1,88 @@
+:root {
+  --color-primary: #0b6e4f;
+  --color-accent: #d4a017;
+  --color-bg: #faf9f6;
+  --color-text: #222222;
+  --color-sage: #e8f0ec;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  margin: 0;
+  padding: 1.5rem;
+}
+
+h1 {
+  color: var(--color-primary);
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.weather {
+  background-color: var(--color-sage);
+  border-radius: 6px;
+  padding: 1.5rem;
+  max-width: 500px;
+}
+
+.weather h2 {
+  color: var(--color-primary);
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.current-weather {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.current-temp {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin: 0;
+}
+
+.current-desc {
+  text-transform: capitalize;
+  margin: 0;
+}
+
+.forecast-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.forecast-card {
+  background-color: #ffffff;
+  border-radius: 4px;
+  padding: 0.75rem 0.5rem;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.forecast-day {
+  font-weight: 700;
+  color: var(--color-primary);
+  font-size: 0.85rem;
+  margin: 0 0 0.3rem;
+}
+
+.forecast-temp {
+  font-weight: 600;
+  margin: 0.3rem 0 0;
+}
+
+.error-message {
+  color: #b3261e;
+  font-weight: 600;
+}
