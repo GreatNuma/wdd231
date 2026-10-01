@@ -76,6 +76,23 @@
   .spotlight-grid {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   }
+
+  /* Join page: form and membership cards sit side by side on larger screens */
+  .join-layout {
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 1rem 2rem 2rem;
+  }
+
+  .join-form {
+    flex: 2;
+  }
+
+  .membership-cards {
+    flex: 1;
+    grid-template-columns: 1fr;
+    align-self: stretch;
+  }
 }
 
 @media screen and (min-width: 1000px) {

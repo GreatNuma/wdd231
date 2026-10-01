@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join | TAMAGREN Chamber of Commerce</title>
+  <meta name="description" content="Apply to join the TAMAGREN Chamber of Commerce. Choose from NP, Bronze, Silver, and Gold membership levels.">
+  <meta name="author" content="Great Tamarabrakemi Numa">
+
+  <link rel="icon" href="../favicon.ico">
+
+  <meta property="og:title" content="Join the TAMAGREN Chamber of Commerce">
+  <meta property="og:description" content="Apply to join the TAMAGREN Chamber of Commerce and choose the membership level that fits your business.">
+  <meta property="og:image" content="https://greatnuma.github.io/wdd231/chamber/images/chamber-preview.jpg">
+  <meta property="og:url" content="https://greatnuma.github.io/wdd231/chamber/join.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="styles/small.css">
+  <link rel="stylesheet" href="styles/larger.css">
+
+  <script src="scripts/join.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-brand">
+      <img src="images/logo.svg" alt="TAMAGREN Chamber of Commerce logo"  class="logo">
+      <p class="brand-name">TAMAGREN Chamber<span>of Commerce</span></p>
+    </div>
+
+    <button id="menu-toggle" class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+      <span class="sr-only">Menu</span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <nav id="primary-nav" class="primary-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="directory.html">Directory</a></li>
+        <li><a href="join.html" aria-current="page">Join</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="join-intro">
+      <h1>Join the TAMAGREN Chamber of Commerce</h1>
+      <p>Become part of a growing network of businesses across TAMAGREN. Fill out the application below and choose the membership level that fits your organization.</p>
+    </section>
+
+    <div class="join-layout">
+      <form class="join-form" action="thankyou.html" method="get">
+        <label for="firstName">First Name
+          <input
+            type="text"
+            id="firstName"
+            name="firstName"
+            title="Your first name"
+            autocomplete="given-name"
+            required
+          >
+        </label>
+
+        <label for="lastName">Last Name
+          <input
+            type="text"
+            id="lastName"
+            name="lastName"
+            title="Your last name"
+            autocomplete="family-name"
+            required
+          >
+        </label>
+
+        <label for="orgTitle">Organizational Title
+          <input
+            type="text"
+            id="orgTitle"
+            name="orgTitle"
+            title="Your title within your organization (letters, hyphens, and spaces only, minimum 7 characters)"
+            autocomplete="organization-title"
+            pattern="[A-Za-z\-\s]{7,}"
+          >
+        </label>
+
+        <label for="email">Email Address
+          <input
+            type="email"
+            id="email"
+            name="email"
+            title="Your email address"
+            autocomplete="email"
+            placeholder="jane@example.com"
+            required
+          >
+        </label>
+
+        <label for="mobilePhone">Mobile Phone Number
+          <input
+            type="tel"
+            id="mobilePhone"
+            name="mobilePhone"
+            title="Your mobile phone number"
+            autocomplete="tel"
+            required
+          >
+        </label>
+
+        <label for="orgName">Business/Organization Name
+          <input
+            type="text"
+            id="orgName"
+            name="orgName"
+            title="The name of your business or organization"
+            autocomplete="organization"
+            required
+          >
+        </label>
+
+        <label for="membershipLevel">Membership Level
+          <select id="membershipLevel" name="membershipLevel" title="Select a membership level" required>
+            <option value="np">NP Membership (Non-Profit, Free)</option>
+            <option value="bronze">Bronze Membership</option>
+            <option value="silver">Silver Membership</option>
+            <option value="gold">Gold Membership</option>
+          </select>
+        </label>
+
+        <label for="orgDescription">Business/Organization Description
+          <textarea
+            id="orgDescription"
+            name="orgDescription"
+            title="A brief description of your business or organization"
+            rows="4"
+          ></textarea>
+        </label>
+
+        <input type="hidden" name="timestamp" id="timestamp">
+
+        <input type="submit" value="Submit Application">
+      </form>
+
+      <div class="membership-cards">
+        <section class="membership-card card-np">
+          <h2>NP Membership</h2>
+          <p class="card-price">Free</p>
+          <p>For registered non-profit organizations serving the Lagos community.</p>
+          <a href="#modal-np" class="learn-more" data-modal="modal-np">Learn More</a>
+        </section>
+
+        <section class="membership-card card-bronze">
+          <h2>Bronze Membership</h2>
+          <p class="card-price">Entry-level</p>
+          <p>A great starting point for small businesses new to the chamber.</p>
+          <a href="#modal-bronze" class="learn-more" data-modal="modal-bronze">Learn More</a>
+        </section>
+
+        <section class="membership-card card-silver">
+          <h2>Silver Membership</h2>
+          <p class="card-price">Growing businesses</p>
+          <p>Expanded visibility and networking opportunities for established businesses.</p>
+          <a href="#modal-silver" class="learn-more" data-modal="modal-silver">Learn More</a>
+        </section>
+
+        <section class="membership-card card-gold">
+          <h2>Gold Membership</h2>
+          <p class="card-price">Premium</p>
+          <p>Our top tier with maximum visibility, advertising, and exclusive perks.</p>
+          <a href="#modal-gold" class="learn-more" data-modal="modal-gold">Learn More</a>
+        </section>
+      </div>
+    </div>
+
+    <!-- Membership benefit modals -->
+    <dialog id="modal-np" class="membership-modal">
+      <button type="button" class="modal-close" aria-label="Close">&times;</button>
+      <h2>NP Membership Benefits</h2>
+      <ul>
+        <li>Free membership for registered non-profit organizations</li>
+        <li>Basic directory listing</li>
+        <li>Access to chamber networking events</li>
+        <li>Monthly newsletter subscription</li>
+      </ul>
+    </dialog>
+
+    <dialog id="modal-bronze" class="membership-modal">
+      <button type="button" class="modal-close" aria-label="Close">&times;</button>
+      <h2>Bronze Membership Benefits</h2>
+      <ul>
+        <li>Standard directory listing with business description</li>
+        <li>Access to chamber networking events</li>
+        <li>Discounted admission to one luncheon per quarter</li>
+        <li>Monthly newsletter subscription</li>
+      </ul>
+    </dialog>
+
+    <dialog id="modal-silver" class="membership-modal">
+      <button type="button" class="modal-close" aria-label="Close">&times;</button>
+      <h2>Silver Membership Benefits</h2>
+      <ul>
+        <li>Enhanced directory listing with logo and website link</li>
+        <li>Discounted admission to all chamber events</li>
+        <li>Quarterly mention in the chamber newsletter</li>
+        <li>Access to member-only training workshops</li>
+        <li>Social media shout-out from the chamber's official pages</li>
+      </ul>
+    </dialog>
+
+    <dialog id="modal-gold" class="membership-modal">
+      <button type="button" class="modal-close" aria-label="Close">&times;</button>
+      <h2>Gold Membership Benefits</h2>
+      <ul>
+        <li>Premium directory listing, featured near the top</li>
+        <li>Eligibility for homepage "Member Spotlight" rotation</li>
+        <li>Free admission to all chamber events and the annual gala</li>
+        <li>Dedicated feature in the chamber newsletter</li>
+        <li>Priority access to training workshops and sponsorship opportunities</li>
+        <li>Premium advertising placement on the chamber website</li>
+      </ul>
+    </dialog>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-info">
+      <p>TAMAGREN Chamber of Commerce</p>
+      <p>22 Marina Street, TAMAGREN Island, TAMAGREN, Nigeria</p>
+      <p>+234 800 000 0000 | info@tamagrenchamber.example.com</p>
+    </div>
+    <div class="footer-dev">
+      <p>Great Tamarabrakemi Numa</p>
+      <p>WDD 231 &mdash; Web Frontend Development I</p>
+      <p>&copy; <span id="year"></span> TAMAGREN Chamber of Commerce</p>
+      <p>Last Modified: <span id="last-modified"></span></p>
+    </div>
+  </footer>
+</body>
+</html>

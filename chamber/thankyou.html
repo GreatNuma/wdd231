@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You | TAMAGREN Chamber of Commerce</title>
+  <meta name="description" content="Thank you for applying to join the TAMAGREN Chamber of Commerce.">
+  <meta name="author" content="Great Tamarabrakemi Numa">
+
+  <link rel="icon" href="../favicon.ico">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="styles/small.css">
+  <link rel="stylesheet" href="styles/larger.css">
+
+  <script src="scripts/thankyou.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-brand">
+      <img src="images/logo.svg" alt="TAMAGREN Chamber of Commerce logo" class="logo">
+      <p class="brand-name">TAMAGREN Chamber<span>of Commerce</span></p>
+    </div>
+
+    <button id="menu-toggle" class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+      <span class="sr-only">Menu</span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <nav id="primary-nav" class="primary-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="directory.html">Directory</a></li>
+        <li><a href="join.html">Join</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="thankyou-section">
+      <h1>Thank You for Applying!</h1>
+      <p>We've received your membership application and will be in touch soon. Here's a summary of what you submitted:</p>
+
+      <dl id="confirmation-details" class="confirmation-list">
+        <!-- Populated dynamically by thankyou.js -->
+      </dl>
+
+      <a href="index.html" class="back-link">&larr; Return to Home</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-info">
+      <p>TAMAGREN Chamber of Commerce</p>
+      <p>22 Marina Street, TAMAGREN Island, TAMAGREN, Nigeria</p>
+      <p>+234 800 000 0000 | info@tamagrenchamber.example.com</p>
+    </div>
+    <div class="footer-dev">
+      <p>Great Tamarabrakemi Numa</p>
+      <p>WDD 231 &mdash; Web Frontend Development I</p>
+      <p>&copy; <span id="year"></span> TAMAGREN Chamber of Commerce</p>
+      <p>Last Modified: <span id="last-modified"></span></p>
+    </div>
+  </footer>
+</body>
+</html>
