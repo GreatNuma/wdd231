@@ -27,7 +27,7 @@
 
   .primary-nav a:hover,
   .primary-nav a[aria-current="page"] {
-    background-color: rgba(255, 255, 255, 0.12);
+    background-color: #0f8863;
   }
 
   .directory-controls {
