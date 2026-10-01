@@ -27,7 +27,7 @@
 <body>
   <header class="site-header">
     <div class="header-brand">
-      <img src="images/logo.svg" alt="TAMAGREN Chamber of Commerce logo"  class="logo">
+      <img src="images/logo.svg" alt="TAMAGREN Chamber of Commerce logo" class="logo">
       <p class="brand-name">TAMAGREN Chamber<span>of Commerce</span></p>
     </div>
 
@@ -125,7 +125,8 @@
         </label>
 
         <label for="membershipLevel">Membership Level
-          <select id="membershipLevel" name="membershipLevel" title="Select a membership level" required>
+          <select id="membershipLevel" name="membershipLevel" title="Select a membership level" autocomplete="off" required>
+            <option value="">-- Select a Membership Level --</option>
             <option value="np">NP Membership (Non-Profit, Free)</option>
             <option value="bronze">Bronze Membership</option>
             <option value="silver">Silver Membership</option>
@@ -138,6 +139,7 @@
             id="orgDescription"
             name="orgDescription"
             title="A brief description of your business or organization"
+            autocomplete="off"
             rows="4"
           ></textarea>
         </label>
@@ -151,7 +153,7 @@
         <section class="membership-card card-np">
           <h2>NP Membership</h2>
           <p class="card-price">Free</p>
-          <p>For registered non-profit organizations serving the Lagos community.</p>
+          <p>For registered non-profit organizations serving the TAMAGREN community.</p>
           <a href="#modal-np" class="learn-more" data-modal="modal-np">Learn More</a>
         </section>
 
