@@ -1,0 +1,24 @@
+/* Medium screens: 641px to 1024px */
+@media screen and (min-width: 641px) {
+  /* Two-column layout with asymmetric spans — c1 and c6 are "featured"
+     items spanning both columns, breaking up the rhythm rather than
+     just adding a second uniform column. */
+  .discover-gallery {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "c1 c1"
+      "c2 c3"
+      "c4 c5"
+      "c6 c6"
+      "c7 c8";
+  }
+
+  .discover-card img {
+    transition: transform 0.3s ease, filter 0.3s ease;
+  }
+
+  .discover-card img:hover {
+    transform: scale(1.04);
+    filter: brightness(1.08);
+  }
+}

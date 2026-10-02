@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discover | TAMAGREN Chamber of Commerce</title>
+  <meta name="description" content="Discover Lagos, Nigeria: history, demographics, and must-see attractions for visitors and prospective chamber members.">
+  <meta name="author" content="Great Tamarabrakemi Numa">
+
+  <link rel="icon" href="../favicon.ico">
+
+  <meta property="og:title" content="Discover Lagos | TAMAGREN Chamber of Commerce">
+  <meta property="og:description" content="Explore Lagos's history, demographics, and top attractions with the TAMAGREN Chamber of Commerce.">
+  <meta property="og:image" content="https://greatnuma.github.io/wdd231/chamber/images/chamber-preview.jpg">
+  <meta property="og:url" content="https://greatnuma.github.io/wdd231/chamber/discover.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="styles/small.css">
+  <link rel="stylesheet" href="styles/medium.css">
+  <link rel="stylesheet" href="styles/larger.css">
+
+  <script src="scripts/discover.js" type="module"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-brand">
+      <img src="images/logo.svg" alt="TAMAGREN Chamber of Commerce logo" class="logo">
+      <p class="brand-name">TAMAGREN Chamber<span>of Commerce</span></p>
+    </div>
+
+    <button id="menu-toggle" class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+      <span class="sr-only">Menu</span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <nav id="primary-nav" class="primary-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="directory.html">Directory</a></li>
+        <li><a href="join.html">Join</a></li>
+        <li><a href="discover.html" aria-current="page">Discover</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="discover-intro">
+      <h1>Discover Lagos</h1>
+      <p>Lagos is Nigeria's largest city and economic hub, home to over 20 million people and a thriving mix of business, culture, and history. Explore some of the area's most notable destinations below.</p>
+    </section>
+
+    <!-- Visit message banner, populated by discover.js using localStorage -->
+    <div id="visit-message" class="visit-message" hidden>
+      <p id="visit-message-text"></p>
+      <button id="visit-message-close" type="button" aria-label="Close message">&times;</button>
+    </div>
+
+    <section class="discover-gallery" id="discover-gallery">
+      <!-- 8 cards injected by discover.js -->
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-info">
+      <p>TAMAGREN Chamber of Commerce</p>
+      <p>22 Marina Street, Lagos Island, Lagos, Nigeria</p>
+      <p>+234 800 000 0000 | info@tamagrenchamber.example.com</p>
+    </div>
+    <div class="footer-dev">
+      <p>Great Tamarabrakemi Numa</p>
+      <p>WDD 231 &mdash; Web Frontend Development I</p>
+      <p>&copy; <span id="year"></span> TAMAGREN Chamber of Commerce</p>
+      <p>Last Modified: <span id="last-modified"></span></p>
+    </div>
+  </footer>
+</body>
+</html>

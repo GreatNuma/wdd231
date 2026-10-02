@@ -105,3 +105,17 @@
     margin: 0 auto;
   }
 }
+
+/* Large screens: 1025px and above */
+@media screen and (min-width: 1025px) {
+  /* Four-column layout with a mosaic-style arrangement, distinct from
+     the medium breakpoint's two-column pairing rather than just a
+     wider version of the same pattern. */
+  .discover-gallery {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+      "c1 c1 c2 c3"
+      "c4 c5 c6 c6"
+      "c7 c7 c8 c8";
+  }
+}
