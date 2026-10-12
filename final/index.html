@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TAMAGREN Tracker | Home</title>
+  <meta name="description" content="TAMAGREN Tracker helps you build and keep daily habits with a simple activity list, session timers, and words of encouragement.">
+  <meta name="author" content="Great Tamarabrakemi Numa">
+
+  <meta property="og:title" content="TAMAGREN Tracker">
+  <meta property="og:description" content="Build and keep daily habits with a simple, encouraging activity tracker.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/hero-tracker.svg">
+
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="stylesheet" href="styles/styles.css">
+  <script type="module" src="scripts/home.mjs"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand">TAMAGREN <span>Tracker</span></a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="primary-nav" class="primary-nav">
+        <ul>
+          <li><a href="index.html" aria-current="page" data-i18n="nav.home">Home</a></li>
+          <li><a href="tracker.html" data-i18n="nav.tracker">Tracker</a></li>
+          <li><a href="resources.html" data-i18n="nav.resources">Resources</a></li>
+          <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+          <li><a href="references.html" data-i18n="nav.references">References</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <p id="visit-banner" class="visit-banner" role="status"></p>
+
+    <section class="hero">
+      <div class="hero-overlay">
+        <div class="hero-text">
+          <h1>Build habits that actually stick.</h1>
+          <p>TAMAGREN Tracker gives you a simple activity list, a browsable library of ready-made habits, built-in session timers, and a little encouragement when you need it.</p>
+          <a class="button" href="tracker.html">Open My Tracker</a>
+        </div>
+        <div class="hero-card">
+          <div class="focus-card">
+            <p class="mini-stat" id="hero-count">0</p>
+            <p>activities tracked</p>
+            <p class="hero-focus-label">Next up:</p>
+            <p id="hero-focus">—</p>
+          </div>
+        </div>
+      </div>
+      <img src="images/hero-tracker.svg" alt="" width="800" height="450" loading="lazy">
+    </section>
+
+    <section class="encouragement-banner">
+      <p id="encouragement-text"></p>
+    </section>
+
+    <section class="feature-grid">
+      <article class="feature-card">
+        <h2>Activity Library</h2>
+        <p>Browse 20 ready-made activities across wellness, focus, fitness, mindset, and learning — add any of them in one click.</p>
+      </article>
+      <article class="feature-card">
+        <h2>Session Timer</h2>
+        <p>Start a built-in countdown for any timed activity so you know exactly when a session is done.</p>
+      </article>
+      <article class="feature-card">
+        <h2>Country &amp; Language</h2>
+        <p>Set your country and preferred language from the Tracker page, and the interface adjusts to match.</p>
+      </article>
+      <article class="feature-card">
+        <h2>Saved Automatically</h2>
+        <p>Everything you add is saved to this browser, so your list is right where you left it next time.</p>
+      </article>
+    </section>
+
+    <section class="flow-steps">
+      <h2>The Flow Method</h2>
+      <ol>
+        <li><strong>Add or browse</strong> — create your own activity or pull one from the library.</li>
+        <li><strong>Time it</strong> — start the session timer if the activity has a duration.</li>
+        <li><strong>Check it off</strong> — mark it done and watch your progress bar move.</li>
+        <li><strong>Celebrate</strong> — clear your whole list and see the celebration banner.</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <p>&copy; <span id="year"></span> TAMAGREN Tracker. Built with semantic HTML, responsive CSS, and vanilla JavaScript.</p>
+      <nav aria-label="Footer">
+        <a href="references.html">References</a>
+        <a href="contact.html">Contact</a>
+         <a href="https://www.loom.com/share/0968f2ef044b491aa27e018e6ae7943a" id="demo-video-link" target="_blank" rel="noopener">Watch my Demo Video</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

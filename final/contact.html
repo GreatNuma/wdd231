@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TAMAGREN Tracker | Contact</title>
+  <meta name="description" content="Send a message to the creator of TAMAGREN Tracker.">
+  <meta name="author" content="Great Tamarabrakemi Numa">
+
+  <meta property="og:title" content="TAMAGREN Tracker — Contact">
+  <meta property="og:description" content="Send a message to the creator of TAMAGREN Tracker.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/hero-tracker.svg">
+
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="stylesheet" href="styles/styles.css">
+  <script type="module" src="scripts/contact.mjs"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand">TAMAGREN <span>Tracker</span></a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="primary-nav" class="primary-nav">
+        <ul>
+          <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+          <li><a href="tracker.html" data-i18n="nav.tracker">Tracker</a></li>
+          <li><a href="resources.html" data-i18n="nav.resources">Resources</a></li>
+          <li><a href="contact.html" aria-current="page" data-i18n="nav.contact">Contact</a></li>
+          <li><a href="references.html" data-i18n="nav.references">References</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1>Get in Touch</h1>
+    <p>Have feedback or a question about TAMAGREN Tracker? Send a message below, or reach out directly.</p>
+
+    <section class="panel contact-layout">
+      <form id="contact-form" action="contact-thanks.html" method="get">
+        <label for="fullName">Full Name
+          <input type="text" id="fullName" name="fullName" title="Your full name" autocomplete="name" required>
+        </label>
+
+        <label for="email">Email Address
+          <input type="email" id="email" name="email" title="Your email address" autocomplete="email" placeholder="jane@example.com" required>
+        </label>
+
+        <label for="subject">Subject
+          <select id="subject" name="subject" title="Reason for contacting" autocomplete="off" required>
+            <option value="">-- Choose a subject --</option>
+            <option value="feedback">General Feedback</option>
+            <option value="bug">Report a Bug</option>
+            <option value="feature">Feature Request</option>
+            <option value="other">Other</option>
+          </select>
+        </label>
+
+        <label for="message">Message
+          <textarea id="message" name="message" title="Your message" rows="5" required></textarea>
+        </label>
+
+        <input type="hidden" name="timestamp" id="timestamp">
+
+        <input type="submit" value="Send Message" class="button small">
+      </form>
+
+      <div class="feature-grid contact-channels">
+        <article class="feature-card">
+          <h2>Email</h2>
+          <p><a href="mailto:gnuma@byupathway.edu" class="contact-link">gnuma@byupathway.edu</a></p>
+        </article>
+        <article class="feature-card">
+          <h2>WhatsApp</h2>
+          <p><a href="https://wa.me/2348032309375" target="_blank" rel="noopener" class="contact-link">+234 803 230 9375</a></p>
+        </article>
+        <article class="feature-card">
+          <h2>TikTok</h2>
+          <p><a href="https://tiktok.com/@thequietskies" target="_blank" rel="noopener" class="contact-link">@thequietskies</a></p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <p>&copy; <span id="year"></span> TAMAGREN Tracker.</p>
+      <nav aria-label="Footer">
+        <a href="references.html">References</a>
+        <a href="contact.html">Contact</a>
+        <!-- Demo video link: my demo video link -->
+         <a href="https://www.loom.com/share/0968f2ef044b491aa27e018e6ae7943a" id="demo-video-link" target="_blank" rel="noopener">Watch my Demo Video</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

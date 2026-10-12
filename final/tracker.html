@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TAMAGREN Tracker | My Tracker</title>
+  <meta name="description" content="Add, time, and complete your daily activities with the TAMAGREN Tracker activity list and library.">
+  <meta name="author" content="Great Tamarabrakemi Numa">
+
+  <meta property="og:title" content="TAMAGREN Tracker — My Tracker">
+  <meta property="og:description" content="Add, time, and complete your daily activities.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/hero-tracker.svg">
+
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="stylesheet" href="styles/styles.css">
+  <script type="module" src="scripts/tracker.mjs"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand">TAMAGREN <span>Tracker</span></a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="primary-nav" class="primary-nav">
+        <ul>
+          <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+          <li><a href="tracker.html" aria-current="page" data-i18n="nav.tracker">Tracker</a></li>
+          <li><a href="resources.html" data-i18n="nav.resources">Resources</a></li>
+          <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+          <li><a href="references.html" data-i18n="nav.references">References</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="tracker-layout">
+    <h1 data-i18n="tracker.heading">Your Activity Tracker</h1>
+
+    <section class="panel preferences-panel">
+      <h2>Preferences</h2>
+      <div class="prefs-fields">
+        <label for="country-select">Country
+          <select id="country-select" name="country" autocomplete="off"></select>
+        </label>
+        <label for="language-select">Language
+          <select id="language-select" name="language" autocomplete="off"></select>
+        </label>
+        <button id="save-prefs-btn" type="button" class="button small">Save Preferences</button>
+      </div>
+    </section>
+
+    <section class="encouragement-banner">
+      <p id="encouragement-text"></p>
+      <button id="refresh-encouragement" type="button" class="btn-small">Another one</button>
+    </section>
+
+    <p id="celebration-banner" class="celebration-banner-container" role="status" hidden>
+      🎉 All activities complete — great work today!
+    </p>
+
+    <section class="panel stats-grid" aria-label="Activity statistics">
+      <div class="stat-card"><p class="stat-number" id="total-count">0</p><p>Total</p></div>
+      <div class="stat-card"><p class="stat-number" id="done-count">0</p><p>Done</p></div>
+      <div class="stat-card"><p class="stat-number" id="open-count">0</p><p>Open</p></div>
+      <div class="stat-card"><p class="stat-number" id="progress-percent">0%</p><p>Progress</p></div>
+    </section>
+
+    <section class="panel add-panel">
+      <h2>Add an Activity</h2>
+      <form id="activity-form">
+        <label for="activity-name">Name
+          <input type="text" id="activity-name" name="activity-name" required autocomplete="off">
+        </label>
+        <label for="activity-type">Category
+          <select id="activity-type" name="activity-type" autocomplete="off">
+            <option value="general">General</option>
+            <option value="wellness">Wellness</option>
+            <option value="focus">Focus</option>
+            <option value="fitness">Fitness</option>
+            <option value="mindset">Mindset</option>
+            <option value="learning">Learning</option>
+            <option value="finance">Finance</option>
+            <option value="home">Home</option>
+            <option value="social">Social</option>
+          </select>
+        </label>
+        <label for="activity-priority">Priority
+          <select id="activity-priority" name="activity-priority" autocomplete="off">
+            <option value="low">Low</option>
+            <option value="normal" selected>Normal</option>
+            <option value="high">High</option>
+          </select>
+        </label>
+        <label for="activity-minutes">Minutes (optional)
+          <input type="number" id="activity-minutes" name="activity-minutes" min="1" max="180" autocomplete="off">
+        </label>
+        <label for="activity-note">Note
+          <textarea id="activity-note" name="activity-note" rows="2" autocomplete="off"></textarea>
+        </label>
+        <div class="add-panel-actions">
+          <input type="submit" value="Add Activity" class="button small">
+          <button type="button" id="open-library-btn" class="button small secondary" data-i18n="tracker.libraryButton">Browse Activity Library</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel toolbar">
+      <input type="search" id="search-input" placeholder="Search activities…" aria-label="Search activities">
+      <select id="filter-type" aria-label="Filter by category">
+        <option value="all">All categories</option>
+        <option value="general">General</option>
+        <option value="wellness">Wellness</option>
+        <option value="focus">Focus</option>
+        <option value="fitness">Fitness</option>
+        <option value="mindset">Mindset</option>
+        <option value="learning">Learning</option>
+        <option value="finance">Finance</option>
+        <option value="home">Home</option>
+        <option value="social">Social</option>
+      </select>
+    </section>
+
+    <ul id="activity-list" class="activity-list"></ul>
+
+    <section class="panel backup-section">
+      <h2>Backup</h2>
+      <div class="backup-actions">
+        <button id="export-btn" type="button" class="btn-small">Export JSON</button>
+        <label class="btn-small file-label">
+          Import JSON
+          <input type="file" id="import-file" accept="application/json" hidden>
+        </label>
+        <button id="clear-all" type="button" class="btn-small danger">Clear All</button>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="library-modal" class="modal">
+    <h2>Activity Library</h2>
+    <input type="search" id="library-search" placeholder="Search the library…" aria-label="Search activity library">
+    <ul id="library-list" class="library-list"></ul>
+    <button id="close-library-btn" type="button" class="button small">Close</button>
+  </dialog>
+
+  <dialog id="timer-modal" class="modal timer-modal">
+    <h2 data-i18n="tracker.startTimer">Start Timer</h2>
+    <p id="timer-activity-label"></p>
+    <p id="timer-display" class="timer-display">00:00</p>
+    <div class="timer-controls">
+      <button id="timer-start-btn" type="button" class="btn-small">Start</button>
+      <button id="timer-pause-btn" type="button" class="btn-small">Pause</button>
+      <button id="timer-reset-btn" type="button" class="btn-small">Reset</button>
+    </div>
+    <button id="close-timer-btn" type="button" class="button small">Close</button>
+  </dialog>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <p>&copy; <span id="year"></span> TAMAGREN Tracker.</p>
+      <nav aria-label="Footer">
+        <a href="references.html">References</a>
+        <a href="contact.html">Contact</a>
+         <a href="https://www.loom.com/share/0968f2ef044b491aa27e018e6ae7943a" id="demo-video-link" target="_blank" rel="noopener">Watch my Demo Video</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

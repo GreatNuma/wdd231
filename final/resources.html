@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TAMAGREN Tracker | Resources</title>
+  <meta name="description" content="Curated resources and a personalized activity recommendation tool from TAMAGREN Tracker.">
+  <meta name="author" content="Great Tamarabrakemi Numa">
+
+  <meta property="og:title" content="TAMAGREN Tracker — Resources">
+  <meta property="og:description" content="Curated reading plus a personalized activity recommendation tool.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/hero-tracker.svg">
+
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="stylesheet" href="styles/styles.css">
+  <script type="module" src="scripts/resources.mjs"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand">TAMAGREN <span>Tracker</span></a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="primary-nav" class="primary-nav">
+        <ul>
+          <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+          <li><a href="tracker.html" data-i18n="nav.tracker">Tracker</a></li>
+          <li><a href="resources.html" aria-current="page" data-i18n="nav.resources">Resources</a></li>
+          <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+          <li><a href="references.html" data-i18n="nav.references">References</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1>Resources</h1>
+    <p>A short reading list to pair with your habits, plus a recommendation tool that pulls straight from the Activity Library.</p>
+
+    <section id="resource-grid" class="resource-grid" aria-label="Curated resources"></section>
+
+    <section class="panel recommendation-form">
+      <h2>Get a Recommendation</h2>
+      <form id="recommendation-form">
+        <label for="goal">What are you focused on?
+          <select id="goal" name="goal" required autocomplete="off">
+            <option value="">Choose a focus area</option>
+            <option value="wellness">Wellness</option>
+            <option value="focus">Focus</option>
+            <option value="fitness">Fitness</option>
+            <option value="mindset">Mindset</option>
+            <option value="learning">Learning</option>
+          </select>
+        </label>
+        <input type="submit" value="Suggest Activities" class="button small">
+      </form>
+      <div id="recommendation" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <p>&copy; <span id="year"></span> TAMAGREN Tracker.</p>
+      <nav aria-label="Footer">
+        <a href="references.html">References</a>
+        <a href="contact.html">Contact</a>
+         <a href="https://www.loom.com/share/0968f2ef044b491aa27e018e6ae7943a" id="demo-video-link" target="_blank" rel="noopener">Watch the Demo Video</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

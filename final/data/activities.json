@@ -1,0 +1,22 @@
+[
+  { "id": "lib-1", "name": "Morning Stretch Routine", "category": "wellness", "minutes": 10, "description": "A gentle full-body stretch to wake up your muscles and ease into the day.", "difficulty": "Easy" },
+  { "id": "lib-2", "name": "Gratitude Journaling", "category": "wellness", "minutes": 5, "description": "Write down three things you're grateful for to start the day with a positive mindset.", "difficulty": "Easy" },
+  { "id": "lib-3", "name": "Box Breathing", "category": "wellness", "minutes": 4, "description": "Breathe in, hold, out, and hold again for 4 counts each to calm your nervous system.", "difficulty": "Easy" },
+  { "id": "lib-4", "name": "Evening Wind-Down", "category": "wellness", "minutes": 15, "description": "Dim the lights, put devices away, and ease your body into rest mode before bed.", "difficulty": "Moderate" },
+  { "id": "lib-5", "name": "Deep Work Block", "category": "focus", "minutes": 45, "description": "A single-task, notification-free block of focused work on your most important task.", "difficulty": "Challenging" },
+  { "id": "lib-6", "name": "Inbox Zero Sprint", "category": "focus", "minutes": 20, "description": "Clear, archive, or respond to every item in your inbox in one focused sprint.", "difficulty": "Moderate" },
+  { "id": "lib-7", "name": "Pomodoro Study Session", "category": "focus", "minutes": 25, "description": "25 minutes of focused study or work followed by a short break.", "difficulty": "Moderate" },
+  { "id": "lib-8", "name": "Weekly Planning Session", "category": "focus", "minutes": 20, "description": "Map out your top priorities and schedule for the week ahead.", "difficulty": "Easy" },
+  { "id": "lib-9", "name": "Bodyweight Circuit", "category": "fitness", "minutes": 20, "description": "Push-ups, squats, and planks in rotating sets — no equipment needed.", "difficulty": "Challenging" },
+  { "id": "lib-10", "name": "Brisk Walk", "category": "fitness", "minutes": 30, "description": "A brisk outdoor or treadmill walk to get your heart rate up.", "difficulty": "Easy" },
+  { "id": "lib-11", "name": "Stair Climb Intervals", "category": "fitness", "minutes": 15, "description": "Alternate fast and slow stair climbs to build cardio endurance.", "difficulty": "Challenging" },
+  { "id": "lib-12", "name": "Mobility & Core", "category": "fitness", "minutes": 15, "description": "A short core and mobility routine to support posture and flexibility.", "difficulty": "Moderate" },
+  { "id": "lib-13", "name": "Guided Meditation", "category": "mindset", "minutes": 10, "description": "A short guided session to quiet the mind and reset your focus.", "difficulty": "Easy" },
+  { "id": "lib-14", "name": "Visualize Your Goals", "category": "mindset", "minutes": 8, "description": "Picture yourself completing a goal in vivid detail to build motivation.", "difficulty": "Easy" },
+  { "id": "lib-15", "name": "Digital Detox Hour", "category": "mindset", "minutes": 60, "description": "One full hour away from screens to reset your attention span.", "difficulty": "Challenging" },
+  { "id": "lib-16", "name": "Affirmation Practice", "category": "mindset", "minutes": 5, "description": "Speak or write a few affirmations that reflect who you're becoming.", "difficulty": "Easy" },
+  { "id": "lib-17", "name": "Read 20 Pages", "category": "learning", "minutes": 25, "description": "Make steady progress on a book that's teaching you something new.", "difficulty": "Moderate" },
+  { "id": "lib-18", "name": "Learn a New Word", "category": "learning", "minutes": 5, "description": "Pick up a new vocabulary word in a language you're learning and use it in a sentence.", "difficulty": "Easy" },
+  { "id": "lib-19", "name": "Online Course Module", "category": "learning", "minutes": 30, "description": "Complete one lesson or module in a course you're working through.", "difficulty": "Moderate" },
+  { "id": "lib-20", "name": "Teach What You Learned", "category": "learning", "minutes": 10, "description": "Explain a recent lesson out loud or in writing to deepen your understanding.", "difficulty": "Moderate" }
+]

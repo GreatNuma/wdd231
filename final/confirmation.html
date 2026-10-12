@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TAMAGREN Tracker | Message Received</title>
+  <meta name="description" content="Confirmation page for messages submitted through the TAMAGREN Tracker contact form.">
+  <meta name="author" content="Great Tamarabrakemi Numa">
+
+  <meta property="og:title" content="TAMAGREN Tracker — Message Received">
+  <meta property="og:description" content="Confirmation that your contact message was received.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/hero-tracker.svg">
+
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="stylesheet" href="styles/styles.css">
+  <script type="module" src="scripts/confirmation.mjs"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand">TAMAGREN <span>Tracker</span></a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="primary-nav" class="primary-nav">
+        <ul>
+          <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+          <li><a href="tracker.html" data-i18n="nav.tracker">Tracker</a></li>
+          <li><a href="resources.html" data-i18n="nav.resources">Resources</a></li>
+          <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+          <li><a href="references.html" data-i18n="nav.references">References</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1>Message Received</h1>
+    <div id="confirmation-summary" class="panel"></div>
+    <p><a class="button small" href="index.html">Back to Home</a></p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <p>&copy; <span id="year"></span> TAMAGREN Tracker.</p>
+      <nav aria-label="Footer">
+        <a href="references.html">References</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
