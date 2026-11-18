@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#020711">
+<title>I Love You SAFEJ 💙</title>
+<style>
+:root {
+  --blue: #45caff;
+  --deep-blue: #087bff;
+  --glass: rgba(5, 22, 43, .76);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 100%; min-height: 100%; }
+body {
+  min-height: 100vh; min-height: 100dvh; overflow: hidden; color: #eafaff;
+  background: #02050b; font-family: Arial, Helvetica, sans-serif;
+}
+#particleCanvas { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; }
+.page {
+  position: fixed; inset: 0; z-index: 1; display: none;
+  align-items: flex-start; justify-content: center; padding: 76px 18px 86px;
+  overflow-y: auto; overflow-x: hidden; isolation: isolate;
+}
+/* margin:auto centres content when there is room and lets it scroll from the top when there is not */
+.page > * { margin: auto; }
+.page.active { display: flex; animation: pageIn .65s ease both; }
+@keyframes pageIn { from { opacity: 0; transform: translateY(15px) scale(.99); } to { opacity: 1; transform: none; } }
+.glow { text-shadow: 0 0 10px #00cfff, 0 0 26px #008cff, 0 0 52px #0066ff; }
+.hero { text-align: center; pointer-events: none; max-width: 100%; }
+.hero h1 { color: #a8efff; font-size: clamp(28px, 6vw, 66px); letter-spacing: 5px; }
+.hero h2 { margin-top: 12px; color: #42c5ff; font-size: clamp(38px, 9vw, 88px); letter-spacing: 8px; }
+.hero p { margin-top: 20px; color: #8edfff; letter-spacing: 3px; font-size: clamp(11px, 2vw, 15px); }
+.heartbeat { animation: heartbeat 2s ease-in-out infinite; }
+@keyframes heartbeat { 0%,100% { transform: scale(1); } 50% { transform: scale(1.045); } }
+
+.nav {
+  position: fixed; z-index: 10; bottom: 20px; left: 0; right: 0;
+  display: flex; justify-content: center; align-items: center; gap: 12px; padding: 0 12px;
+}
+.nav button, .action {
+  border: 1px solid rgba(108,213,255,.65); color: #eafaff;
+  background: linear-gradient(135deg, rgba(0,132,255,.35), rgba(0,35,83,.8));
+  border-radius: 999px; padding: 12px 21px; cursor: pointer;
+  font-size: 14px; letter-spacing: .5px; box-shadow: 0 0 18px rgba(0,145,255,.25);
+  transition: transform .2s, box-shadow .2s, background .2s;
+}
+.nav button:hover, .action:hover { transform: translateY(-2px); box-shadow: 0 0 26px rgba(0,180,255,.55); }
+.nav button:disabled { opacity: .35; cursor: not-allowed; transform: none; }
+.page-count { color: #9bdfff; font-size: 12px; min-width: 48px; text-align: center; }
+.panel {
+  width: min(850px, 100%); text-align: center;
+  padding: clamp(18px, 4vw, 46px); border: 1px solid rgba(90,195,255,.3);
+  border-radius: 26px; background: var(--glass); backdrop-filter: blur(12px);
+  box-shadow: 0 0 45px rgba(0,110,255,.16), inset 0 0 35px rgba(0,145,255,.05);
+}
+.eyebrow { color: #77d9ff; text-transform: uppercase; letter-spacing: 4px; font-size: 11px; margin-bottom: 13px; }
+.panel h2 { color: #a8efff; font-size: clamp(24px, 5vw, 43px); margin-bottom: 20px; overflow-wrap: anywhere; }
+.letter {
+  max-width: 690px; margin: 0 auto; color: #e1f6ff; font-size: clamp(15px, 2.2vw, 18px);
+  line-height: 1.9; text-align: left; white-space: pre-line;
+}
+.signature { margin-top: 22px; color: #66d4ff; font-size: 20px; font-style: italic; }
+.floating-emoji { position: fixed; z-index: -1; bottom: -50px; opacity: 0; pointer-events: none; animation: floatUp linear infinite; filter: drop-shadow(0 0 10px #168dff); }
+@keyframes floatUp { 0% { transform: translateY(0) rotate(0deg) scale(.7); opacity: 0; } 12% { opacity: .9; } 85% { opacity: .8; } 100% { transform: translateY(-115vh) rotate(35deg) scale(1.25); opacity: 0; } }
+
+/* Ten-photo carousel */
+.gallery-panel { width: min(950px, 100%); }
+.gallery-panel h2 { margin-bottom: 14px; }
+.slide-frame {
+  position: relative; width: 100%;
+  /* height follows the screen so the whole panel fits the view; never smaller than 200px */
+  height: clamp(200px, calc(100vh - 520px), 560px);
+  height: clamp(200px, calc(100dvh - 520px), 560px);
+  border-radius: 18px; overflow: hidden; background: linear-gradient(135deg,#061a38,#063c68,#07101e);
+  border: 1px solid rgba(102,208,255,.35); box-shadow: 0 0 30px rgba(0,140,255,.2);
+}
+/* contain = the whole photo is always visible, nothing is cropped */
+.slide-frame img { position: relative; z-index: 1; width: 100%; height: 100%; display: block; object-fit: contain; object-position: center; }
+.slide-fallback {
+  position: absolute; inset: 0; display: flex; flex-direction: column;
+  justify-content: center; align-items: center; gap: 12px; color: #bdeeff; text-align: center; padding: 10px;
+  background: radial-gradient(circle at 50% 40%, rgba(0,173,255,.25), transparent 55%);
+}
+.slide-fallback strong { font-size: clamp(22px,4vw,34px); text-shadow: 0 0 15px #008cff; }
+.slide-fallback span { font-size: 13px; color: #8fcff0; }
+.slide-caption { margin: 12px 0 10px; color: #c9efff; }
+.gallery-controls { display: flex; justify-content: center; align-items: center; gap: 14px; }
+.gallery-controls button { border: 1px solid #4bbfff; border-radius: 50%; width: 42px; height: 42px; color: white; background: #06315d; cursor: pointer; font-size: 20px; }
+.dots { display: flex; gap: 7px; justify-content: center; margin-top: 12px; flex-wrap: wrap; }
+.dots button { width: 8px; height: 8px; border: 0; border-radius: 50%; background: #38627d; cursor: pointer; }
+.dots button.current { background: #69dcff; box-shadow: 0 0 10px #00aaff; transform: scale(1.35); }
+.gallery-panel .small-help { margin-top: 10px; }
+
+/* Video page */
+.video-icon { font-size: clamp(54px, 10vw, 90px); margin: 10px 0 20px; filter: drop-shadow(0 0 20px #008cff); animation: heartbeat 2s infinite; }
+.video-note { color: #b8e9ff; line-height: 1.7; margin: 0 auto 24px; max-width: 550px; }
+.video-link { display: inline-block; text-decoration: none; }
+.small-help { margin-top: 16px; color: #80b8d5; font-size: 12px; line-height: 1.6; }
+
+/* Small phones */
+@media (max-width: 520px) {
+  .page { padding: 62px 12px 78px; }
+  .nav { gap: 7px; bottom: 14px; }
+  .nav button { padding: 11px 15px; font-size: 12px; }
+  .hero h1 { letter-spacing: 2px; } .hero h2 { letter-spacing: 4px; }
+  .panel { border-radius: 19px; }
+  .eyebrow { letter-spacing: 2px; font-size: 10px; }
+  .slide-frame { height: clamp(200px, calc(100vh - 470px), 480px); height: clamp(200px, calc(100dvh - 470px), 480px); }
+}
+/* Short screens (landscape phones, small laptops) */
+@media (max-height: 640px) {
+  .page { padding: 18px 14px 66px; }
+  .nav { bottom: 10px; }
+  .nav button { padding: 8px 15px; font-size: 12px; }
+  .eyebrow { margin-bottom: 6px; }
+  .panel h2 { margin-bottom: 10px; }
+  .gallery-panel { padding: 12px 18px; }
+  .slide-frame { height: clamp(150px, calc(100vh - 300px), 560px); height: clamp(150px, calc(100dvh - 300px), 560px); }
+  .gallery-panel .small-help { display: none; }
+  .gallery-controls button { width: 36px; height: 36px; }
+}
+/* Very large screens */
+@media (min-width: 1400px) and (min-height: 900px) {
+  .gallery-panel { width: min(1100px, 100%); }
+}
+</style>
+</head>
+<body>
+<canvas id="particleCanvas"></canvas>
+
+<!-- PAGE 1: Your original animated blue particle heart -->
+<section class="page active" id="page1" aria-label="Welcome">
+  <div class="hero heartbeat">
+    <h1 class="glow">i love you</h1>
+    <h2 class="glow">SAFEJ</h2>
+    <p class="glow">YOU ARE MY WORLD 💙</p>
+  </div>
+</section>
+
+<!-- PAGE 2: Personal write-up. Edit the paragraph below to make it your own. -->
+<section class="page" id="page2" aria-label="A little message">
+  <div class="panel" id="lovePanel">
+    <div class="eyebrow">A little message from my heart</div>
+    <h2 class="glow">For You, SAFEJ 💙</h2>
+    <div class="letter">I may not always find the perfect words to explain how much you mean to me, but I hope you never doubt how special you are.
+
+You bring warmth to my days, smiles to my face, and a kind of happiness that words can hardly describe. Even the simplest moments become beautiful when they have you in them.
+
+I hope life gives you countless reasons to smile, the courage to chase every dream, and the assurance that you are deeply appreciated.
+
+No matter how many miles, moments, or seasons pass, I want you to remember this: you are precious, you are loved, and you i will always be with you and walk with you.</div>
+    <div class="signature">I love you, always Bee. 💙</div>
+  </div>
+</section>
+
+<!-- PAGE 3: Ten-photo slideshow. Add your photos to the images folder. -->
+<section class="page" id="page3" aria-label="Our pictures">
+  <div class="panel gallery-panel">
+    <div class="eyebrow">Little moments, lovely memories</div>
+    <h2 class="glow">You are stunning my BumbleBee 📸</h2>
+    <div class="slide-frame">
+      <img id="slideImage" src="images/photo1.jpg" alt="Memory photo 1">
+      <div class="slide-fallback" id="slideFallback">
+        <strong>💙 Memory <span id="fallbackNumber">1</span></strong>
+        <span>Add your picture as images/photo1.jpg</span>
+      </div>
+    </div>
+    <div class="slide-caption" id="slideCaption">Memory 1 of 10</div>
+    <div class="gallery-controls">
+      <button type="button" id="prevSlide" aria-label="Previous picture">‹</button>
+      <span class="page-count" id="slideCount">01 / 10</span>
+      <button type="button" id="nextSlide" aria-label="Next picture">›</button>
+    </div>
+    <div class="dots" id="slideDots" aria-label="Choose a picture"></div>
+    <p class="small-help">Replace the sample photo paths in the code with your own pictures.</p>
+  </div>
+</section>
+
+<!-- PAGE 4: Video link. Replace the URL in the script below. -->
+<section class="page" id="page4" aria-label="A special video">
+  <div class="panel">
+    <div class="eyebrow">One more thing for you</div>
+    <h2 class="glow">A Special Video 🎬</h2>
+    <div class="video-icon">💌</div>
+    <p class="video-note">I saved one more little surprise for you. Tap the button below and let it play. I hope it makes you smile as much as you make me smile. 💙</p>
+    <a class="video-link action" id="videoButton" href="#" target="_blank" rel="noopener">▶ Watch your video</a>
+    <p class="small-help">Set your video URL in the <strong>VIDEO_URL</strong> value near the bottom of this file.</p>
+  </div>
+</section>
+
+<nav class="nav" aria-label="Page navigation">
+  <button type="button" id="backButton" disabled>← Back</button>
+  <span class="page-count" id="pageCount">1 / 4</span>
+  <button type="button" id="nextButton">Next page →</button>
+</nav>
+
+<script>
+/* ---------- BLUE PARTICLE HEART BACKGROUND ---------- */
+const canvas = document.getElementById("particleCanvas");
+const ctx = canvas.getContext("2d");
+let width, height, heartParticles = [], floatingParticles = [], bursts = [];
+const BLUE = ["#3b82f6", "#60a5fa", "#93c5fd", "#2563eb", "#06b6d4", "#1d4ed8", "#67e8f9"];
+const HEART_COUNT = 1050;
+let animationFrame;
+
+function resizeCanvas() {
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  width = window.innerWidth; height = window.innerHeight;
+  canvas.width = Math.floor(width * dpr);
+  canvas.height = Math.floor(height * dpr);
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  createHeart();
+  createFloaters();
+}
+function heartPoint(t, scale) {
+  const x = 16 * Math.pow(Math.sin(t), 3);
+  const y = -(13 * Math.cos(t) - 5 * Math.cos(2*t) - 2 * Math.cos(3*t) - Math.cos(4*t));
+  return { x: width / 2 + x * scale, y: height / 2 + y * scale };
+}
+function createHeart() {
+  heartParticles = [];
+  const scale = Math.min(width, height) / 39;
+  for (let i = 0; i < HEART_COUNT; i++) {
+    const t = Math.random() * Math.PI * 2;
+    const fill = Math.sqrt(Math.random());
+    const point = heartPoint(t, scale * fill);
+    heartParticles.push({
+      x: Math.random() * width, y: Math.random() * height,
+      tx: point.x, ty: point.y, size: Math.random() * 2 + .45,
+      speed: Math.random() * .035 + .018,
+      color: BLUE[Math.floor(Math.random() * BLUE.length)],
+      phase: Math.random() * Math.PI * 2
+    });
+  }
+}
+function createFloaters() {
+  floatingParticles = Array.from({length: 150}, () => ({
+    x: Math.random() * width, y: Math.random() * height,
+    size: Math.random() * 1.7 + .4, speed: Math.random() * .45 + .12,
+    phase: Math.random() * Math.PI * 2,
+    color: BLUE[Math.floor(Math.random() * BLUE.length)]
+  }));
+}
+function spawnBurst(x, y) {
+  for (let i = 0; i < 100; i++) {
+    const a = Math.random() * Math.PI * 2, s = Math.random() * 3.4 + .7;
+    bursts.push({x, y, vx: Math.cos(a)*s, vy: Math.sin(a)*s,
+      life: 1, size: Math.random()*2.8+.8,
+      color: BLUE[Math.floor(Math.random()*BLUE.length)]});
+  }
+}
+function drawParticle(x, y, size, color, alpha, blur=9) {
+  ctx.globalAlpha = alpha; ctx.fillStyle = color;
+  ctx.shadowBlur = blur; ctx.shadowColor = color;
+  ctx.beginPath(); ctx.arc(x, y, size, 0, Math.PI*2); ctx.fill();
+}
+function animate(time) {
+  ctx.clearRect(0, 0, width, height);
+  const pulse = 1 + Math.sin(time * .002) * .025;
+  for (const p of heartParticles) {
+    const tx = width/2 + (p.tx-width/2)*pulse;
+    const ty = height/2 + (p.ty-height/2)*pulse;
+    p.x += (tx-p.x)*p.speed; p.y += (ty-p.y)*p.speed;
+    const alpha = .42 + (Math.sin(time*.003+p.phase)+1)*.27;
+    drawParticle(p.x,p.y,p.size,p.color,alpha,12);
+  }
+  for (const p of floatingParticles) {
+    p.y -= p.speed; p.x += Math.sin(time*.001+p.phase)*.18;
+    if (p.y < -5) { p.y = height+5; p.x = Math.random()*width; }
+    drawParticle(p.x,p.y,p.size,p.color,.35+Math.sin(time*.002+p.phase)*.2,7);
+  }
+  for (let i=bursts.length-1; i>=0; i--) {
+    const p=bursts[i]; p.x+=p.vx; p.y+=p.vy; p.vx*=.985; p.vy*=.985; p.life-=.014;
+    drawParticle(p.x,p.y,p.size,p.color,Math.max(0,p.life),14);
+    if(p.life<=0) bursts.splice(i,1);
+  }
+  ctx.globalAlpha=1; ctx.shadowBlur=0;
+  animationFrame=requestAnimationFrame(animate);
+}
+window.addEventListener("resize", resizeCanvas);
+resizeCanvas();
+requestAnimationFrame(animate);
+setInterval(() => spawnBurst(width/2,height/2), 3800);
+setTimeout(() => spawnBurst(width/2,height/2), 700);
+
+/* ---------- PAGE NAVIGATION ---------- */
+const pages = [...document.querySelectorAll(".page")];
+const backButton = document.getElementById("backButton");
+const nextButton = document.getElementById("nextButton");
+const pageCount = document.getElementById("pageCount");
+let currentPage = 0;
+function showPage(index) {
+  currentPage = Math.max(0, Math.min(pages.length-1, index));
+  pages.forEach((page, i) => page.classList.toggle("active", i===currentPage));
+  backButton.disabled = currentPage===0;
+  nextButton.disabled = currentPage===pages.length-1;
+  nextButton.textContent = currentPage===pages.length-1 ? "The end 💙" : "Next page →";
+  pageCount.textContent = `${currentPage+1} / ${pages.length}`;
+  if (currentPage===1) startLoveEmojis();
+}
+backButton.addEventListener("click", () => showPage(currentPage-1));
+nextButton.addEventListener("click", () => showPage(currentPage+1));
+document.addEventListener("keydown", e => {
+  if(e.key==="ArrowRight") showPage(currentPage+1);
+  if(e.key==="ArrowLeft") showPage(currentPage-1);
+});
+
+/* ---------- FLOATING LOVE EMOJIS ON THE WRITE-UP PAGE ---------- */
+let emojiTimer = null;
+function startLoveEmojis() {
+  if (emojiTimer) return;
+  const symbols = ["💙","💖","💕","❤️","💗","😘","💘","🦋"];
+  emojiTimer = setInterval(() => {
+    if(currentPage!==1) return;
+    const el=document.createElement("span");
+    el.className="floating-emoji";
+    el.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+    el.style.left=Math.random()*96+"vw";
+    el.style.fontSize=(18+Math.random()*25)+"px";
+    const duration=5+Math.random()*5;
+    el.style.animationDuration=duration+"s";
+    document.body.appendChild(el);
+    setTimeout(()=>el.remove(),duration*1000);
+  }, 420);
+}
+
+/* ---------- TEN-PICTURE SLIDESHOW ---------- */
+const photos = Array.from({length:10}, (_,i)=>({
+  src:`images/photo${i+1}.jpg`,
+  caption:`A special memory ${i+1}`
+}));
+let slideIndex=0;
+const slideImage=document.getElementById("slideImage");
+const slideFallback=document.getElementById("slideFallback");
+const slideCaption=document.getElementById("slideCaption");
+const slideCount=document.getElementById("slideCount");
+const fallbackNumber=document.getElementById("fallbackNumber");
+const dotsContainer=document.getElementById("slideDots");
+
+photos.forEach((photo,i)=>{
+  const dot=document.createElement("button");
+  dot.type="button"; dot.setAttribute("aria-label",`Show picture ${i+1}`);
+  dot.addEventListener("click",()=>showSlide(i));
+  dotsContainer.appendChild(dot);
+});
+function showSlide(index) {
+  slideIndex=(index+photos.length)%photos.length;
+  const photo=photos[slideIndex];
+  slideFallback.style.display="flex";
+  fallbackNumber.textContent=slideIndex+1;
+  slideImage.alt=`Memory photo ${slideIndex+1}`;
+  slideImage.onload=()=>{slideFallback.style.display="none";};
+  slideImage.onerror=()=>{slideFallback.style.display="flex";};
+  slideImage.src=photo.src;
+  slideCaption.textContent=photo.caption;
+  slideCount.textContent=`${String(slideIndex+1).padStart(2,"0")} / 10`;
+  [...dotsContainer.children].forEach((dot,i)=>dot.classList.toggle("current",i===slideIndex));
+}
+document.getElementById("prevSlide").addEventListener("click",()=>showSlide(slideIndex-1));
+document.getElementById("nextSlide").addEventListener("click",()=>showSlide(slideIndex+1));
+showSlide(0);
+
+/* ---------- SURPRISE VIDEO ---------- */
+
+const VIDEO_URL = "video/surprise.mp4";
+
+const surpriseVideo = document.getElementById("surpriseVideo");
+
+surpriseVideo.src = VIDEO_URL;
+surpriseVideo.poster = "video/poster.jpg";
+
+surpriseVideo.load();
+</script>
+</body>
+</html>
